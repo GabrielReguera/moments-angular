@@ -1,0 +1,14 @@
+.form-submit{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form-group input[type="button"]{
+    width: 3.5em;
+    height: 2em;
+    border: none;
+    cursor: pointer;
+    background-color: darkblue;
+    color: white;
+}
