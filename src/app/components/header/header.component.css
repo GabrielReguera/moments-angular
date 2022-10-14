@@ -1,0 +1,60 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  border-bottom: solid 1px black;
+}
+.links li {
+  text-decoration: none;
+  margin-right: 1em;
+  list-style: none;
+}
+
+.links span {
+  text-align: center;
+  height: 1.5em;
+  transition: all ease-in-out 0.3s;
+}
+
+.links span:hover {
+  background-color: darkblue;
+  border-radius: 8px;
+}
+.links span li {
+  padding: 0 1em 0 1em;
+  margin: 0;
+}
+
+.brand,
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand img {
+  width: 7em;
+  margin-right: 0.6em;
+}
+
+.brand h2 {
+  transition: all 0.4s;
+}
+
+.brand:hover {
+  color: darkblue;
+}
+
+#add {
+  display: flex;
+  align-items: center;
+}
+
+#add a {
+  color: darkblue;
+  transition: all ease-in-out 0.3s;
+}
+
+#add:hover > a {
+  color: white;
+}
