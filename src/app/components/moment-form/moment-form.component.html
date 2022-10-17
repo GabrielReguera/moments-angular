@@ -1,16 +1,19 @@
-<form action="">
+<form [formGroup]="uploadForm">
   <div class="form-group">
     <label for="title">Title:</label>
     <input type="text" placeholder="Coloque um título" required />
   </div>
   <div class="form-group">
-    <label for="description">Drecription:</label>
+    <label for="description">Drescription:</label>
     <textarea placeholder="what happened there?" required></textarea>
   </div>
   <div class="form-group">
     <label for="image">Post the photo that tagged the most:</label>
-    <input type="file" id="selectedFile"  style="display: none"/>
-    <input type="button" value="Picture" onclick="document.getElementById('selectedFile').click();"/>
+    <input type="file" accept="image/*" id="selectedFile" (change)="showPreview($event)" style="display: none" />
+    <input type="button" value="Picture" onclick="document.getElementById('selectedFile').click();" />
+    <div class="div-preview" *ngIf="imageURL && imageURL !== ''">
+      <img id="preview" [src]="imageURL" [alt]="uploadForm.value.name" />
+    </div>
   </div>
   <div class="form-submit">
     <input type="submit" value="{{ btnText }}" />

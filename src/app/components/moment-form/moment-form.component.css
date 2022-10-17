@@ -11,4 +11,29 @@
     cursor: pointer;
     background-color: darkblue;
     color: white;
+    transition: all 0.3s ease-in-out;
+}
+.form-group input[type="button"]:hover{
+    background-color: white;
+    color: darkblue;
+}
+
+.div-preview{
+    display: flex;
+    justify-content: center;
+}
+
+#preview{
+    width: 14em;
+    border: solid 2px darkblue;
+    transition: 1s;
+    animation-name: preview;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes preview {
+    0% {border: solid 2px darkblue;}
+    50% {border: solid 2px rgb(0, 209, 236);}
+    100% {border: solid 2px darkblue;}
 }
