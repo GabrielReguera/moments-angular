@@ -6,3 +6,12 @@ footer {
   justify-content: center;
   height: 5em;
 }
+
+footer p{
+  margin-top: 1em;
+  font-weight: 600;
+}
+
+footer span{
+  color: darkblue;
+}
