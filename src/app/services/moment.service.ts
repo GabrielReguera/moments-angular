@@ -1,9 +1,22 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+import { Moment } from '../Moment';
+
+import { environment } from 'src/environments/environment';
+import { Response } from '../Response';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MomentService {
+  private baseApiUrl = environment.baseApiUrl;
+  private apiUrl = `${this.baseApiUrl}api-moments/moment`;
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
+
+  createMoment(moment: Moment): Observable<Response<Moment>> {
+    return this.http.post<Response<Moment>>(this.apiUrl, moment);
+  }
 }

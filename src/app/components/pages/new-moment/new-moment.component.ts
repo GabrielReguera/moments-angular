@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Moment } from 'src/app/Moment';
+import { MomentService } from 'src/app/services/moment.service';
+
 @Component({
   selector: 'app-new-moment',
   templateUrl: './new-moment.component.html',
@@ -8,7 +11,11 @@ import { Component, OnInit } from '@angular/core';
 export class NewMomentComponent implements OnInit {
   btnText = 'Compartilhar!';
 
-  constructor() {}
+  constructor(private momentService: MomentService) {}
 
   ngOnInit(): void {}
+
+  async createHandler(moment: Moment) {
+    await this.momentService.createMoment(moment).subscribe();
+  }
 }

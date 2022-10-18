@@ -1,23 +1,36 @@
 <form [formGroup]="momentForm" (ngSubmit)="submit()" #formDir="ngForm">
+
   <div class="form-group">
     <label for="title">Title:</label>
-    <input [ngClass]="title.invalid && formDir.submitted ? 'inputInvalid' : 'inputValid'" type="text" placeholder="Coloque um título" formControlName="title" required />
-    <p *ngIf="title.invalid && formDir.submitted" class="validation-error">The title is required</p>
+    <input [ngClass]="title.invalid && formDir.submitted ? 'inputInvalid' : 'inputValid'" type="text"
+      placeholder="Coloque um título" formControlName="title" required />
+    <p *ngIf="title.invalid && formDir.submitted" class="validation-error">
+      The title is required
+    </p>
   </div>
+
   <div class="form-group">
     <label for="description">Drescription:</label>
-    <textarea [ngClass]="description.invalid && formDir.submitted ? 'inputInvalid' : 'inputValid'" placeholder="what happened there?" formControlName="description" required></textarea>
-    <p *ngIf="description.invalid && formDir.submitted" class="validation-error">The description is required</p>
+    <textarea [ngClass]="description.invalid && formDir.submitted ? 'inputInvalid' : 'inputValid'"
+      placeholder="what happened there?" formControlName="description" required></textarea>
+    <p *ngIf="description.invalid && formDir.submitted" class="validation-error">
+      The description is required
+    </p>
   </div>
+
   <div class="form-group">
     <label for="image">Post the photo that tagged the most:</label>
-    <input type="file" accept="image/*" id="selectedFile" (change)="showPreview($event)" style="display: none" />
+    <input type="file" accept="image/*" id="selectedFile" 
+    (change)="showPreview($event)" style="display: none" 
+    />
     <input type="button" value="Picture" onclick="document.getElementById('selectedFile').click();" />
     <div class="div-preview" *ngIf="imageURL && imageURL !== ''">
       <img id="preview" [src]="imageURL" [alt]="momentForm.value.name" />
     </div>
+
   </div>
   <div class="form-submit">
     <input type="submit" value="{{ btnText }}" />
   </div>
+
 </form>

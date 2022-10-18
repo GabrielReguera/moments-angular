@@ -1,5 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  FormControl,
+  Validators,
+} from '@angular/forms';
+
+import { Moment } from 'src/app/Moment';
 
 @Component({
   selector: 'app-moment-form',
@@ -8,11 +15,12 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class MomentFormComponent implements OnInit {
   @Input() btnText!: string;
+  @Output() onSubmit = new EventEmitter<Moment>();
 
   imageURL!: string;
   momentForm: FormGroup;
 
-    constructor(public fb: FormBuilder) {
+  constructor(public fb: FormBuilder) {
     this.momentForm = this.fb.group({
       avatar: [null],
       name: [''],
@@ -24,34 +32,40 @@ export class MomentFormComponent implements OnInit {
       id: new FormControl(''),
       title: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
-      image: new FormControl('')
-    })
+      image: new FormControl(''),
+    });
   }
 
-  get title(){
+  get title() {
     return this.momentForm.get('title')!;
   }
 
-  get description(){
+  get description() {
     return this.momentForm.get('description')!;
   }
-  
+
   showPreview(event: any) {
     const file = (event.target as HTMLInputElement).files![0];
-    this.momentForm.patchValue({
-      avatar: file
-    });
-    this.momentForm.get('avatar')?.updateValueAndValidity()
+
+    this.momentForm.get('image')?.updateValueAndValidity();
+
     const reader = new FileReader();
     reader.onload = () => {
-      this.imageURL = reader.result as string;
-    }
+      this.momentForm.patchValue({
+        image: this.imageURL = reader.result as string,
+      });
+    };
+
     reader.readAsDataURL(file);
   }
 
-  submit(){
-    if(this.momentForm.invalid){
+  submit() {
+    if (this.momentForm.invalid) {
       return;
     }
+    console.log(this.momentForm.value);
+
+    this.onSubmit.emit(this.momentForm.value);
+
   }
 }

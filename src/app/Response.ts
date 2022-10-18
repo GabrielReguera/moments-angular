@@ -1,4 +1,5 @@
 export interface Response<T> {
-  message?: string;
-  data: T;
+  messages: string[];
+  body?: T;
+  status: string
 }
