@@ -2,18 +2,19 @@
     <h1>See the posts</h1>
     <div class="search-container">
         <form class="search-form" action="">
-            <input type="text" placeholder="Find another moment"
-            (input)="search($event)"/>
+            <input type="text" placeholder="Find another moment" (input)="search($event)" />
             <fa-icon [icon]="faSearch"></fa-icon>
         </form>
     </div>
     <div *ngIf="moments.length > 0; else noMoments">
         <div class="moments-container">
             <div *ngFor="let moment of moments">
-                <img src="{{moment.image}}" alt="">
-                <h2>{{ moment.title }}</h2>
-                <p class="date">{{ moment.createdAt }}</p>
-                <p>Comentários: {{ moment.comments!.length}}</p>
+                <a routerLink="moments/{{ moment.id }}">
+                    <img src="{{moment.image}}" alt="">
+                    <h2>{{ moment.title }}</h2>
+                    <p class="date">{{ moment.createdAt }}</p>
+                    <p>Comentários: {{ moment.comments!.length}}</p>
+                </a>
             </div>
         </div>
     </div>
