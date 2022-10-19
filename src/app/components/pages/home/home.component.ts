@@ -15,13 +15,34 @@ export class HomeComponent implements OnInit {
   moments: Moment[] = [];
   baseApiUrl = environment.baseApiUrl;
 
+  faSearch = faSearch;
+  searchTerm: string = '';
+
   constructor(private momentService: MomentService) {}
 
   ngOnInit(): void {
     this.momentService.getMoments().subscribe((moments) => {
-      
-      this.allMoments = moments.body!;
-      this.moments = moments.body!;
+      console.log(moments);
+
+      const data: Moment[] = moments.body;
+
+      data.map((item) => {
+        item.createdAt = new Date(item.createdAt!).toLocaleDateString('pt-BR');
+      });
+
+      this.allMoments = data;
+      this.moments = data;
     });
+  }
+
+  search(event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+
+    this.moments = this.allMoments.filter((moment) =>
+      moment.title
+        .toLowerCase()
+        .normalize('NFD')
+        .includes(value)
+    );
   }
 }

@@ -35,9 +35,44 @@ form {
   font-size: 0.8em;
   border: 1px solid red;
 }
-input, textarea{
+
+input,
+textarea {
   outline: none;
+  padding: 0.6em;
+  color: #777;
+  font-size: 0.8em;
+  border: 1px solid darkblue;
 }
+
+input:hover,
+textarea:hover  {
+  border: 1px solid rgb(0, 209, 236);
+  
+}
+
+input:focus,
+textarea:focus {
+  border: 2px solid rgb(0, 209, 236);
+  animation-name: inputs;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes inputs {
+  0% {
+      border: solid 2px rgb(0, 209, 236);
+  }
+
+  50% {
+      border: solid 2px darkblue;
+  }
+
+  100% {
+      border: solid 2px rgb(0, 209, 236);
+  }
+}
+
 .inputValid {
   padding: 0.6em;
   color: #777;
