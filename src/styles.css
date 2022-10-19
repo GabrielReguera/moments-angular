@@ -46,9 +46,9 @@ textarea {
 }
 
 input:hover,
-textarea:hover  {
+textarea:hover {
   border: 1px solid rgb(0, 209, 236);
-  
+
 }
 
 input:focus,
@@ -61,15 +61,15 @@ textarea:focus {
 
 @keyframes inputs {
   0% {
-      border: solid 2px rgb(0, 209, 236);
+    border: solid 2px rgb(0, 209, 236);
   }
 
   50% {
-      border: solid 2px darkblue;
+    border: solid 2px darkblue;
   }
 
   100% {
-      border: solid 2px rgb(0, 209, 236);
+    border: solid 2px rgb(0, 209, 236);
   }
 }
 
@@ -104,4 +104,48 @@ input[type="submit"]:hover {
   margin-top: 0.4em;
   padding-left: 0.2em;
   border-left: solid 2px red;
+}
+
+/* BUTTONS */
+
+.edit-btn,
+.remove-btn {
+  border: 1px solid darkblue;
+  padding: .4em 1em;
+  font-size: 1em;
+  margin: 0 .5em;
+  cursor: pointer;
+  background-color: white;
+  transition: 0.3s;
+}
+
+button fa-icon,
+a fa-icon {
+  margin-right: .2em;
+}
+
+.edit-btn,
+.edit-btn path {
+  border-color: darkblue;
+  color: darkblue;
+  transition: 0.3s;
+}
+
+.edit-btn:hover,
+.edit-btn:hover path {
+  background-color: darkblue;
+  color: white;
+}
+
+.remove-btn,
+.remove-btn path {
+  border-color: crimson;
+  color: crimson;
+  transition: 0.3s;
+}
+
+.remove-btn:hover,
+.remove-btn:hover path {
+  background-color: crimson;
+  color: white;
 }
