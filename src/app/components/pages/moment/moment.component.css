@@ -55,13 +55,13 @@ h1{
 
 .comment-form{
     margin-bottom: 3em;
+    width: 100%;
 }
 
 .comment-form form{
     margin-top: 1em;
     text-align: left;
-    max-width: 5em;
-    margin-left: 0;
+    max-width: 100%;
 }
 
 .author span {

@@ -18,21 +18,27 @@
         <h3>Comments ({{moment.comments!.length > 0 ? moment.comments!.length : '0'}}): </h3>
         <div *ngIf="moment.comments!.length > 0">
             <div class="comment-container" *ngFor="let comment of moment.comments">
-                <p class="comment">{{comment.text}}</p>
                 <p class="author"><span>From: </span>{{comment.username}}</p>
+                <p class="comment">{{comment.text}}</p>
             </div>
         </div>
     </div>
     <div class="comment-form">
         <h3>Comment here!</h3>
-        <form >
+        <form [formGroup]="commentForm" #formDir="ngForm" (ngSubmit)="onSubmit(formDir)">
             <div class="form-group">
                 <label for="username">Username:</label>
-                <textarea placeholder="who is?" required></textarea>
+                <input placeholder="who is?" formControlName="username" required />
+                <p *ngIf="text.invalid && formDir.submitted" class="validation-error">
+                    The text is required
+                </p>
             </div>
             <div class="form-group">
                 <label for="Text">Comment:</label>
-                <input type="text" placeholder="Write your name" required>
+                <textarea type="text" placeholder="Write your name" formControlName="text" required></textarea>
+                <p *ngIf="username.invalid && formDir.submitted" class="validation-error">
+                    The username is required
+                </p>
             </div>
             <input type="submit" value="Comment!">
         </form>
