@@ -8,12 +8,12 @@
     margin: 0 auto;
 }
 
-h1{
-    margin-bottom: 1em;
+.moment img{
+    width: 90%;
 }
 
-.img { 
-    max-width: 8em;
+h1{
+    margin-bottom: 1em;
 }
 
 .about-moment, .actions{

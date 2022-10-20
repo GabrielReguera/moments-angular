@@ -4,9 +4,12 @@
     justify-content: center;
 }
 
+.form-submit input{
+    color: black;
+}
+
 .form-group input[type="button"] {
-    width: 3.5em;
-    height: 2em;
+    max-width: fit-content;
     border: none;
     cursor: pointer;
     background-color: darkblue;
