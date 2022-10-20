@@ -17,6 +17,9 @@ export class MomentFormComponent implements OnInit {
   @Input() btnText!: string;
   @Output() onSubmit = new EventEmitter<Moment>();
 
+  @Input() momentData: Moment | null = null;
+
+
   imageURL!: string;
   momentForm: FormGroup;
 
