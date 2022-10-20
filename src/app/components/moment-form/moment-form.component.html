@@ -1,4 +1,5 @@
 <form [formGroup]="momentForm" (ngSubmit)="submit()" #formDir="ngForm">
+  <input type="hidden" formControlName="id" />
 
   <div class="form-group">
     <label for="title">Title:</label>
@@ -20,9 +21,7 @@
 
   <div class="form-group">
     <label for="image">Post the photo that tagged the most:</label>
-    <input type="file" accept="image/*" id="selectedFile" 
-    (change)="showPreview($event)" style="display: none" 
-    />
+    <input type="file" accept="image/*" id="selectedFile" (change)="showPreview($event)" style="display: none" />
     <input type="button" value="Picture" onclick="document.getElementById('selectedFile').click();" />
     <div class="div-preview" *ngIf="imageURL && imageURL !== ''">
       <img id="preview" [src]="imageURL" [alt]="momentForm.value.name" />
